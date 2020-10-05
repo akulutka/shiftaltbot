@@ -8,10 +8,10 @@ bot = telebot.TeleBot(botsettings.tg_token)
 server = Flask(__name__)
 
 def translate_string(string):
-    eng_string = '''`qwertyuiop[]asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?'''
-    rus_string = '''ёйцукенгшщзхъфывапролджэячсмитьбю.Ё!"№;%:?*()_+ЙЦУКЕНГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,'''
+    eng_string = """`qwertyuiop[]asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?"""
+    rus_string = """ёйцукенгшщзхъфывапролджэячсмитьбю.Ё!"№;%:?*()_+ЙЦУКЕНГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,"""
 
-    res_str = ''
+    res_str = ""
 
     for s in string:
         if (eng_string.find(s) == -1):
@@ -37,7 +37,6 @@ def translate_query(query):
 
 @bot.message_handler(commands=["start"])
 def start(message):
-    print('kek')
     greet = """Z gthtrk.xf. hfcrkflre rkfdbfnehs/ Gjnjve xnj vjue/"""
     bot.send_message(message.chat.id, greet, parse_mode="Markdown")
 
